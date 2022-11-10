@@ -17,7 +17,7 @@ combines the prior stages. Modeling and visualization are given their
 own modules as well. Finally, there’s a “main script” that calls all the
 modules, a function which is also performed by this RMarkdown.
 
-##### If you’re not interested in an explanation of the background and process, feel free to scroll down to see the results.
+#### If you’re not interested in an explanation of the background and process, feel free to scroll down to see the results.
 
 ## Background
 
@@ -238,24 +238,15 @@ membership with a less competitive price position.
 plot_FL_state()
 ```
 
-![](Readme_files/figure-gfm/unnamed-chunk-6-1.png)<!-- --> \## Build a
-model
+![](Readme_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+
+## Build a model
 
 This next step builds a logistic GLM using silver price position, bronze
 price position, and carrier x state dummy variables.
 
 ``` r
 source("model_build.R")
-```
-
-    ## 
-    ## Attaching package: 'caret'
-
-    ## The following object is masked from 'package:purrr':
-    ## 
-    ##     lift
-
-``` r
 glm.mod <- build_model()
 ```
 
