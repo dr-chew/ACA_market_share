@@ -291,8 +291,9 @@ plot_OH_amb()
 plot_OH_amb()
 ```
 
-![](Title_files/figure-gfm/unnamed-chunk-10-1.png)<!-- --> \## Final
-thoughts
+![](Title_files/figure-gfm/unnamed-chunk-10-1.png)<!-- --> 
+
+## Final thoughts
 
 The best way to deal with this is to build a model that incorporates
 county-level variation without over-fitting. This could be through a
