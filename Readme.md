@@ -17,7 +17,7 @@ combines the prior stages. Modeling and visualization are given their
 own modules as well. Finally, there’s a “main script” that calls all the
 modules, a function which is also performed by this RMarkdown.
 
-###### If you’re not interested in an explanation of the background and process, feel free to scroll down to see the results.
+##### If you’re not interested in an explanation of the background and process, feel free to scroll down to see the results.
 
 ## Background
 
@@ -229,7 +229,7 @@ source("visualization.R")
 plot_OH_state()
 ```
 
-![](Title_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](Readme_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 In Florida, it’s easy to see that the Blues can sustain higher
 membership with a less competitive price position.
@@ -238,7 +238,7 @@ membership with a less competitive price position.
 plot_FL_state()
 ```
 
-![](Title_files/figure-gfm/unnamed-chunk-6-1.png)<!-- --> \## Build a
+![](Readme_files/figure-gfm/unnamed-chunk-6-1.png)<!-- --> \## Build a
 model
 
 This next step builds a logistic GLM using silver price position, bronze
@@ -274,7 +274,7 @@ viz_dat <- prep_lines()
 plot_illustrative()
 ```
 
-![](Title_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+![](Readme_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
 However, it’s worth noting that this model isn’t great in its current
 state. If we look at county-level plots of a single carrier, Ambetter,
@@ -285,13 +285,13 @@ model can’t account for.
 plot_OH_amb()
 ```
 
-![](Title_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+![](Readme_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
 
 ``` r
 plot_FL_amb()
 ```
 
-![](Title_files/figure-gfm/unnamed-chunk-10-1.png)<!-- --> 
+![](Readme_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
 
 ## Final thoughts
 

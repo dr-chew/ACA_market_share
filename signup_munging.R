@@ -68,7 +68,7 @@ signups <- bind_rows(signups_2015, signups_2016, signups_2017, signups_2018, sig
 rm(list = setdiff(ls(), "signups"))
 
   
-# load("signups.RDS")
+# load("signups/signups.RDS")
 
 return(signups)
 
