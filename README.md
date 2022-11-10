@@ -1,6 +1,9 @@
 ACA Marketplace Market Share Modeling 
+
 Aaron Olcerst, Ph.D.
+
 aolcerst@gmail.com
+
 11/10/2022
 
 Scope
