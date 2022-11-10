@@ -9,7 +9,7 @@ The purpose of this project is to create a model that uses pricing data
 to explain variations in market share among Affordable Care Act (ACA)
 marketplace health insurance carriers.
 
-Organization
+## Organization
 
 The script is organized into modules. Each stage of data prep has its
 own module, and then there’s an additional module (data_prep) that
