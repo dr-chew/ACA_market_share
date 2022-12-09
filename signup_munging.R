@@ -4,7 +4,7 @@ require(readxl)
 signup_munging <- function(){
 
 # Load and initial cleanup of carrier-level enrollment by metal by county
-# Miraculously, CMS has been consistent with formatting of these files!
+# Miraculously, CMS used consistent formatting for a few years!
 
 # This type of data is typically released on a two-year lag, and is therefore
 # not as current as pricing or market-level enrollment
@@ -31,30 +31,45 @@ cleanup <- function(x){
            hios = as.numeric(hios))
 }
 
-signups_2020 <- read_excel("C:/Program Files/R/test/ACA/signups/signups_2020.xlsx", skip = 1, col_names = TRUE, sheet = 2) %>%
+signups_2020 <- read_excel("signups/signups_2020.xlsx", skip = 1, col_names = TRUE, sheet = 2) %>%
   mutate(year = 2020) %>%
   cleanup()
 
 
-signups_2019 <- read_excel("C:/Program Files/R/test/ACA/signups/signups_2019.xlsx", skip = 1, col_names = TRUE, sheet = 2) %>%
+signups_2019 <- read_excel("signups/signups_2019.xlsx", skip = 1, col_names = TRUE, sheet = 2) %>%
   mutate(year = 2019) %>%
   cleanup()
 
-signups_2018 <- read_excel("C:/Program Files/R/test/ACA/signups/signups_2018.xlsx", skip = 1, col_names = TRUE, sheet = 2) %>%
+signups_2018 <- read_excel("signups/signups_2018.xlsx", skip = 1, col_names = TRUE, sheet = 2) %>%
   mutate(year = 2018) %>%
   cleanup()
 
-signups_2017 <- read_excel("C:/Program Files/R/test/ACA/signups/signups_2018.xlsx", skip = 1, col_names = TRUE, sheet = 2) %>%
+signups_2017 <- read_excel("signups/signups_2017.xlsx", skip = 1, col_names = TRUE, sheet = 2) %>%
   mutate(year = 2017) %>%
   cleanup()
 
-signups_2016 <- read_excel("C:/Program Files/R/test/ACA/signups/signups_2018.xlsx", skip = 1, col_names = TRUE, sheet = 2) %>%
+signups_2016 <- read_excel("signups/signups_2016.xlsx", col_names = TRUE, sheet = 2) %>%
   mutate(year = 2016) %>%
-  cleanup()
+    rename(state = 'Tenant ID',
+           fips = 'Policy County FIPS Code',
+           hios = 'HIOS ID',
+           signups = 'Ever Enrolled Count') %>%
+    select(year, state, fips, hios, signups) %>%
+    mutate(signups = as.numeric(signups),
+           signups = ifelse(is.na(signups), 0, signups),
+           hios = as.numeric(hios))
 
-signups_2015 <- read_excel("C:/Program Files/R/test/ACA/signups/signups_2018.xlsx", skip = 1, col_names = TRUE, sheet = 2) %>%
+signups_2015 <- read_excel("signups/signups_2015.xlsx", col_names = TRUE, sheet = 2) %>%
   mutate(year = 2015) %>%
-  cleanup()
+    rename(state = tenant_id,
+           fips = plcy_county_fips_code,
+           hios = issuer_hios_id,
+           signups = ever_enrolled_plan_sel) %>%
+    select(year, state, fips, hios, signups) %>%
+    mutate(signups = as.numeric(signups),
+           signups = ifelse(is.na(signups), 0, signups),
+           hios = as.numeric(hios))
+  
 
 
 # reset warnings to default

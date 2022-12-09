@@ -5,29 +5,29 @@ price_munging <- function(){
 
   # Read in pricing files found here: https://www.healthcare.gov/health-and-dental-plan-datasets-for-researchers-and-issuers/
 
-  prices2022 <- read_excel("C:/Program Files/R/test/ACA/prices/2022_prices.xlsx", skip = 1, col_names = TRUE) %>%
-    mutate(year = 2022) %>%
-    select(year, 'State Code':'Rating Area', 'Premium Adult Individual Age 40')
-  prices2021 <- read_excel("C:/Program Files/R/test/ACA/prices/2021_prices.xlsx", col_names = TRUE) %>%
-    mutate(year = 2021) %>%
-    select(year, 'State Code':'Rating Area', 'Premium Adult Individual Age 40')
-  prices2020 <- read_excel("C:/Program Files/R/test/ACA/prices/2020_prices.xlsx", col_names = TRUE) %>%
+  # prices2022 <- read_excel("prices/2022_prices.xlsx", skip = 1, col_names = TRUE) %>%
+  #   mutate(year = 2022) %>%
+  #   select(year, 'State Code':'Rating Area', 'Premium Adult Individual Age 40')
+  # prices2021 <- read_excel("prices/2021_prices.xlsx", col_names = TRUE) %>%
+  #   mutate(year = 2021) %>%
+  #   select(year, 'State Code':'Rating Area', 'Premium Adult Individual Age 40')
+  prices2020 <- read_excel("prices/2020_prices.xlsx", col_names = TRUE) %>%
     mutate(year = 2020) %>%
     select(year, 'State Code':'Rating Area', 'Premium Adult Individual Age 40')
-  prices2019 <- read_excel("C:/Program Files/R/test/ACA/prices/2019_prices.xlsx", sheet = 2, skip = 1, col_names = TRUE) %>%
+  prices2019 <- read_excel("prices/2019_prices.xlsx", sheet = 2, skip = 1, col_names = TRUE) %>%
     mutate(year = 2019) %>%
     select(year, 'State Code':'Rating Area', 'Premium Adult Individual Age 40')
-  prices2018 <- read_excel("C:/Program Files/R/test/ACA/prices/2018_prices.xlsx", col_names = TRUE) %>%
+  prices2018 <- read_excel("prices/2018_prices.xlsx", col_names = TRUE) %>%
     mutate(year = 2018) %>%
     select(year, 'State Code':'Plan Type', 'Rating Area', 'Premium Adult Individual Age 40')
-  prices2017 <- read_excel("C:/Program Files/R/test/ACA/prices/2017_prices.xlsx", col_names = TRUE) %>%
+  prices2017 <- read_excel("prices/2017_prices.xlsx", col_names = TRUE) %>%
     mutate(year = 2017) %>%
     select(year, 'State Code':'Rating Area', 'Premium Adult Individual Age 40')
-  prices2016 <- read_excel("C:/Program Files/R/test/ACA/prices/2016_prices.xlsx", col_names = TRUE) %>%
+  prices2016 <- read_excel("prices/2016_prices.xlsx", col_names = TRUE) %>%
     mutate(year = 2016,
            'HIOS Issuer ID' = str_sub(`Plan ID (Standard Component)`, end = 5)) %>%
     select(year, 'State Code':'Rating Area','HIOS Issuer ID', 'Premium Adult Individual Age 40')
-  prices2015 <- read_excel("C:/Program Files/R/test/ACA/prices/2015_prices.xlsx", col_names = TRUE) %>%
+  prices2015 <- read_excel("prices/2015_prices.xlsx", col_names = TRUE) %>%
     mutate(year = 2015,
            'HIOS Issuer ID' = str_sub(`Plan ID (standard component)`, end = 5)) %>%
     select(year, State:'Rating Area', 'HIOS Issuer ID', 'Premium Adult Individual Age 40') %>%
@@ -35,7 +35,7 @@ price_munging <- function(){
            'County Name' = 'County',
            'Plan ID (Standard Component)' = 'Plan ID (standard component)')
 
-  later_years <- bind_rows(prices2022, prices2021, prices2020, prices2019, prices2018, prices2017) %>%
+  later_years <- bind_rows(prices2020, prices2019, prices2018, prices2017) %>%
     select(-`Standardized Plan Design`) %>%
     mutate(`HIOS Issuer ID` = as.character(`HIOS Issuer ID`))
 
