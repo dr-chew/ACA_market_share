@@ -16,32 +16,32 @@ enrollment_munging = function(){
   defaultW <- getOption("warn")
   options(warn = -1)
   
-  mkt_2022 <- read_excel("C:/Program Files/R/test/ACA/enrollment/2022_enrollment.xlsx", sheet = 7, col_names = TRUE) %>%
+  mkt_2022 <- read_excel("enrollment/2022_enrollment.xlsx", sheet = 7, col_names = TRUE) %>%
     mutate(year = 2022) %>%
     rename(state = State,
            fips = 'County FIPS Code',
            mkt_total = 'Number of Consumers with a Marketplace Plan Selection') %>%
     select(year, state, fips, mkt_total) %>%
-    mutate(mkt_total = as.numeric(mkt_total))
+    mutate(mkt_total = as.numeric(gsub(",", "", mkt_total)))
   
   
-  mkt_2021 <- read.csv("C:/Program Files/R/test/ACA/enrollment/2021_enrollment.csv", header = TRUE) %>%
+  mkt_2021 <- read.csv("enrollment/2021_enrollment.csv", header = TRUE) %>%
     mutate(year = 2021) %>%
     rename(state = State_Abrvtn,
          fips = County_FIPS_Cd,
          mkt_total = Cnsmr) %>%
     select(year, state, fips, mkt_total)  %>%
-    mutate(mkt_total = as.numeric(mkt_total))
+    mutate(mkt_total = as.numeric(gsub(",", "", mkt_total)))
   
-  mkt_2020 <- read.csv("C:/Program Files/R/test/ACA/enrollment/2020_enrollment.csv", header = TRUE) %>%
+  mkt_2020 <- read.csv("enrollment/2020_enrollment.csv", header = TRUE) %>%
     mutate(year = 2020) %>%
     rename(state = State_Abrvtn,
            fips = Cnty_FIPS_Cd,
            mkt_total = Cnsmr) %>%
     select(year, state, fips, mkt_total) %>%
-    mutate(mkt_total = as.numeric(mkt_total))
+    mutate(mkt_total = as.numeric(gsub(",", "", mkt_total)))
   
-  mkt_2019 <- read_excel("C:/Program Files/R/test/ACA/enrollment/2019_enrollment.xlsx", sheet = 8, col_names = TRUE) %>%
+  mkt_2019 <- read_excel("enrollment/2019_enrollment.xlsx", sheet = 8, col_names = TRUE) %>%
     mutate(year = 2019) %>%
     rename(state = State,
            fips = 'County FIPS Code',
@@ -49,7 +49,7 @@ enrollment_munging = function(){
     select(year, state, fips, mkt_total) %>%
     mutate(mkt_total = as.numeric(mkt_total))
   
-  mkt_2018 <- read_excel("C:/Program Files/R/test/ACA/enrollment/2018_enrollment.xlsx", sheet = 8, col_names = TRUE) %>%
+  mkt_2018 <- read_excel("enrollment/2018_enrollment.xlsx", sheet = 8, col_names = TRUE) %>%
     mutate(year = 2018) %>%
     rename(state = State,
            fips = 'County FIPS Code',
@@ -57,7 +57,7 @@ enrollment_munging = function(){
     select(year, state, fips, mkt_total) %>%
     mutate(mkt_total = as.numeric(mkt_total))
   
-  mkt_2017 <- read_excel("C:/Program Files/R/test/ACA/enrollment/2017_enrollment.xlsx", sheet = 8, col_names = TRUE) %>%
+  mkt_2017 <- read_excel("enrollment/2017_enrollment.xlsx", sheet = 8, col_names = TRUE) %>%
     mutate(year = 2017) %>%
     rename(state = State,
            fips = 'County FIPS Code',
@@ -65,7 +65,7 @@ enrollment_munging = function(){
     select(year, state, fips, mkt_total) %>%
     mutate(mkt_total = as.numeric(mkt_total))
   
-  mkt_2016 <- read_excel("C:/Program Files/R/test/ACA/enrollment/2016_enrollment.xlsx", sheet = 8, col_names = TRUE) %>%
+  mkt_2016 <- read_excel("enrollment/2016_enrollment.xlsx", sheet = 8, col_names = TRUE) %>%
     mutate(year = 2016) %>%
     rename(state = State,
            fips = 'County FIPS Code',
@@ -73,7 +73,7 @@ enrollment_munging = function(){
     select(year, state, fips, mkt_total) %>%
     mutate(mkt_total = as.numeric(mkt_total))
   
-  mkt_2015 <- read_excel("C:/Program Files/R/test/ACA/enrollment/2015_enrollment.xlsx", sheet = 8, col_names = TRUE) %>%
+  mkt_2015 <- read_excel("enrollment/2015_enrollment.xlsx", sheet = 8, col_names = TRUE) %>%
     mutate(year = 2015) %>%
     rename(state = State,
            fips = 'County FIPS Code',

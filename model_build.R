@@ -8,7 +8,7 @@ build_model <- function(){
 mod_data <- data
 
 
-glm.mod <- glm(mkt_share ~ price_pos_Silver * car_state + price_pos_Bronze * car_state,
+glm.mod <- glm(mkt_share ~ price_pos_Silver * car_state,
                 data = mod_data,
                 family = binomial)
 

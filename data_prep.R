@@ -35,7 +35,8 @@ data_prep <- function(){
       grepl("healthnet", issuer, ignore.case = TRUE) ~ "Ambetter",
       grepl("SilverSummit", issuer, ignore.case = TRUE) ~ "Ambetter",
       grepl("illinicare", issuer, ignore.case = TRUE) ~ "Ambetter",
-      grepl("buckeye", issuer, ignore.case = TRUE) ~ "Ambetter",
+      grepl("Ambetter from Buckeye Health", issuer, ignore.case = TRUE) ~ "Ambetter",
+      grepl("Buckeye Community Health", issuer, ignore.case = TRUE) ~ "Ambetter",
       
       grepl("alliant", issuer, ignore.case = TRUE) ~ "Alliant",
       
